@@ -1,0 +1,4 @@
+requests
+PyJWT
+dataclasses
+cachetools
