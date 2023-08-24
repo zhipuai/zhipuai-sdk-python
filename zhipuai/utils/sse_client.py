@@ -123,4 +123,4 @@ class Event(object):
             s += ", no data"
         if self.retry:
             s += ", retry in {0}ms".format(self.retry)
-        return
+        return s
