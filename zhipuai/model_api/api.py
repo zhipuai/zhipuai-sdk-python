@@ -3,7 +3,7 @@ import posixpath
 
 import zhipuai
 from zhipuai.utils import jwt_token
-from zhipuai.utils.http_client import get, post, stream
+from zhipuai.utils.http_client import get, post, apost, stream
 from zhipuai.utils.sse_client import SSEClient
 
 
@@ -18,6 +18,12 @@ class ModelAPI:
     def invoke(cls, **kwargs):
         url = cls._build_api_url(kwargs, InvokeType.SYNC)
         return post(url, cls._generate_token(), kwargs, zhipuai.api_timeout_seconds)
+
+    @classmethod
+    async def invokea(cls, **kwargs):
+        url = cls._build_api_url(kwargs, InvokeType.SYNC)
+        return await apost(url, cls._generate_token(), kwargs, zhipuai.api_timeout_seconds)
+
 
     @classmethod
     def async_invoke(cls, **kwargs):
