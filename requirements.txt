@@ -2,3 +2,5 @@ requests
 PyJWT
 dataclasses
 cachetools
+aiohttp
+asyncio
